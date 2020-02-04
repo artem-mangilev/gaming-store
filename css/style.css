@@ -1,0 +1,573 @@
+/* reset default styles */
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+/* reset default styles */
+
+/* variables */
+:root {
+  --main-color: #FF9800;
+  --socondary-text-color: #999999;
+  --section-vertical-padding: 3rem;
+  --view-height: 50rem;
+}
+/* variables */
+
+/* common styles */
+html {
+  font-family: Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.rounded-button {
+  color: #fff;
+}
+
+h2, h3 {
+  font-weight: 400;
+}
+
+section > h2 {
+  text-align: center;
+  font-size: 4rem;
+  color: var(--main-color);
+}
+/* common styles */
+
+/* home styles */
+.home {
+  position: relative;
+
+  box-sizing: border-box;
+  width: 100vw;
+  height: var(--view-height);
+  padding: var(--section-vertical-padding) 9rem;
+}
+
+/* 
+  It seems there are no property that sets background filter for element
+  without inheritance this filter to descendant elements. This code solves this issue. 
+  Thanks to: https://css-tricks.com/apply-a-filter-to-a-background-image/.
+*/
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url(../images/1.jpg) no-repeat center;
+  background-size: cover;
+  filter: brightness(65%);
+}
+
+.home-inside {
+  position: relative;
+}
+
+.home h1 {
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 4.9rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #fff;
+}
+
+.home h1 span {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.home nav {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 9rem;
+}
+
+.home nav .rounded-button {
+  display: inline-block;
+  padding: 0.5rem 1.3rem;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-radius: 0;
+  transition: border-radius .7s, border-color .7s ease;
+  font-size: 1.1rem;
+}
+
+.home nav .rounded-button:hover {
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 20px;
+}
+
+.home nav .circle-bullet::after {
+  display: inline-block;
+  content: '•';
+  margin: 0 1rem;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.text-slideshow {
+  position: relative;
+}
+
+.text-slideshow .slides {
+  /* probably temporary solution */
+  width: 47rem;
+
+  margin: 0 auto;
+}
+
+.text-slideshow .slide {
+  text-align: center; 
+  width: inherit;
+  color: #fff;
+
+  float: none;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity .5s ease-in-out;
+}
+
+.text-slideshow .active-slide {
+  text-align: center;
+  width: inherit;
+  color: #fff;
+
+  float: left;
+  position: relative;
+  opacity: 1;
+  z-index: 2;
+  transition: opacity .5s ease-in-out;
+}
+
+.text-slideshow .rounded-button {
+  display: inline-block;
+  padding: .6rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--main-color);
+}
+
+.text-slideshow .pagination {
+  text-align: center;
+  margin-top: 4rem;
+
+  color: var(--main-color);
+}
+
+.text-slideshow h2 {
+  font-size: 7rem;
+}
+
+.text-slideshow p {
+  margin: 2rem;
+}
+
+.text-slideshow .prev-slide {
+  position: absolute;
+  top: 6rem;
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/arrows.png);
+}
+
+.text-slideshow .next-slide {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: url(../images/arrows.png) 50px 0; 
+}
+/* home styles */
+
+/* about styles */
+.about {
+  padding: var(--section-vertical-padding) 9rem;
+}
+
+.about h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 4rem;
+  color: var(--main-color);
+}
+
+.about p {
+  line-height: 1.8rem;
+}
+
+.about .lead {
+  padding: 0 11rem;
+  text-align: center;
+  color: var(--socondary-text-color);
+}
+
+.about hr {
+  margin-top: 1rem;
+  border: 1px dashed #CCCCCC;
+  color: var(--socondary-text-color);
+}
+
+.about blockquote {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--section-vertical-padding);
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.about .quote-image {
+  background-image: url(../images/2.jpg);
+  width: 640px;
+  height: 450px;
+}
+
+.about .quote-text {
+  position: absolute;
+  top: 6rem;
+  left: 29rem;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 3rem;
+  width: 23rem;
+  background-color: #F2F2F2;
+}
+
+.about .quote-text h3 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.about .quote-text p {
+  font-size: 0.9rem;
+  color: #A1A1A1;
+}
+/* about styles */
+
+/* our services styles */
+.card-section {
+  padding: var(--section-vertical-padding) 9rem; 
+  height: auto;
+  background-color: #ECECEC;
+}
+
+.card-section h2 {
+  margin-bottom: 2rem;
+}
+
+
+.card {
+  float: left;
+  box-sizing: border-box;
+  margin: 1.5rem 1rem;
+  padding: 2rem;
+  width: 21.5rem;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0px 1px rgb(107, 107, 107), 0 1px 2px rgba(0,0,0,.24);;
+}
+
+.card .icon {
+  box-sizing: border-box;
+  margin: auto;
+  padding-top: 14px;
+  width: 65px;
+  height: 65px;
+  font-size: 2rem;
+  color: #fff;
+  background-color: var(--main-color);
+}
+
+.card .icon span {
+  width: 100%;
+  text-align: center;
+}
+
+.card .card-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  letter-spacing: 5px;
+}
+
+.card p {
+  color: #A1A1A1;
+  font-size: .9rem;
+  line-height: 1.6rem;
+}
+/* our services styles */
+
+/* team styles */
+.team {
+  padding: var(--section-vertical-padding) 9rem;
+}
+
+.team h2 {
+  margin-bottom: 3rem;
+}
+
+.team .portraits {
+  text-align: center;
+}
+
+.team .portrait {
+  display: inline-block;
+  margin: 0 1rem;
+  width: 15.5rem;
+  height: 22rem;
+  overflow: hidden;
+}
+
+.team .portrait img {
+  width: inherit;
+  height: inherit;
+}
+
+.team .description {
+  box-sizing: border-box;
+  width: inherit;
+  padding: 2rem;
+  background-color: var(--main-color);
+  color: #fff;
+
+  transition: transform .5s ease;
+}
+
+.team .moved-description {
+  transform: translateY(-9.5rem);
+}
+
+.team .description h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.team .description p {
+  color: #eaeaea;
+}
+
+.team .description .socials {
+  margin-top: 1rem;
+}
+
+.team .description .fa {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 2rem; height: 2rem;
+  padding-top: 6px;
+  border: 2px solid #fff;
+
+  transition: background-color .5s;
+}
+
+.team .description .fa-facebook:hover {
+  background-color: #337ab7;
+}
+
+.team .description .fa-twitter:hover {
+  background-color: #55acee;
+}
+.team .description .fa-rss:hover {
+  background-color: #f26522;
+}
+/* team styles */
+
+/* blog styles */
+.blog {
+  padding: var(--section-vertical-padding) 9rem;
+  background-color: #ECECEC;
+}
+
+.blog h2 {
+  margin-bottom: 3rem;
+}
+
+.blog article {
+  float: left;
+  margin-right: 4rem;
+  width: 31rem;
+  line-height: 1.8rem;
+}
+
+.blog .meta {
+  float: left;
+  width: 30%;
+}
+
+.blog .meta .date {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--main-color);
+}
+
+.blog .content {
+  box-sizing: border-box;
+  padding-left: 2rem;
+  display: inline-block;
+  width: 70%;
+}
+
+.blog .content .title {
+  font-weight: 400;
+}
+
+.blog .content .title .popup-link {
+  color: #000;
+  transition: color .5s;
+}
+
+.blog .content .title .popup-link:hover {
+  color: var(--main-color);
+}
+
+.popup {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.popup::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: brightness(1);
+  background-color: rgba(200, 200, 200, 0);
+  transition: background-color .5s, filter .5s;
+}
+
+.popup-inside {
+  /* z-index: 4; */
+  position: relative;
+}
+
+.show {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  /* filter: brightness(.2);
+  background-color: rgba(200, 200, 200, .5); */
+}
+
+.show::before {
+  width: 100%;
+  height: 100%;
+  filter: brightness(.2);
+  background-color: rgba(200, 200, 200, .5);
+}
+
+.hide {
+  width: 0;
+  height: 0;
+  /* z-index: -2; */
+  /* display: none; */
+}
+
+.popup-view {
+  position: relative;
+  margin: 2rem auto;
+  width: 37.5rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px rgba(255, 255, 255, 0.5);
+
+  transform: translateY(-100px);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .5s, opacity .5s, transform .5s;
+}
+
+.animated-popup-view {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.popup-view > h4 {
+  margin-left: 1rem;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 6px;
+}
+
+.popup-view > h4 span {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.popup-view hr {
+  margin-top: 0;
+  border: 0.5px solid #e5e5e5;
+}
+
+.popup-view .content {
+  margin: 1rem
+}
+
+.popup-view img {
+  width: 100%;
+}
+
+.popup-view .content p {
+  padding: 1rem 0;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  color: #A1A1A1;
+}
+
+.blog .content .subtitle {
+  font-size: .9rem;
+  color: #999999;
+}
+/* blog styles */
+
+/* mail us styles */
+.mail-us .text-input-container {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 2rem;
+  width: 15rem;
+  height: 2rem;
+  transition: padding-top .5s;
+}
+
+/* .mail-us .text-input-container:hover {
+  padding-top: 0;
+} */
+
+/* .mail-us .text-input-container::before {
+  content: 'Your Name';
+}
+
+.mail-us .animated-text-input-container {
+  padding-top: 0rem;
+}
+
+.mail-us .text-input {
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid #000;
+}
+
+.mail-us .text-input input {
+  width: 100%;
+  height: 100%;
+} */
+/* mail us styles */
+
+/* clearfix */
+.clearfix {
+  clear: both;
+}
+/* clearfix */
